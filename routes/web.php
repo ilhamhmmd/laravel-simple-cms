@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 /*
@@ -26,3 +27,11 @@ Auth::routes([
 ]);
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Route::group(
+    [
+        'prefix' => 'dashboard',
+        'middleware' => ['auth']
+    ], function() {
+        route::get('/', [\App\Http\Controllers\DashboardController::class, 'index'])->name('dashboard.index');
+});
