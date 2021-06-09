@@ -38,7 +38,7 @@
                <!-- end:breadcrumbs -->
 
                <!-- begin:content -->
-               @yield('contnt')
+               @yield('content')
                <!-- end:content -->
             </div>
          </main>
